@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulário</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div>
         <h2>Formulário de Cadastro</h2>
         <form>
-            <label for="nome">Nome:</label><br>
+            <label id="label-nome" for="nome">Nome:</label><br>
             <input type="text" id="nome" name="nome">
             <br><br>
-            <label for="sobrenome">Sobrenome:</label><br>
+            <label class="label-grupo" for="sobrenome">Sobrenome:</label><br>
             <input type="text" id="sobrenome" name="sobrenome">
             <br><br>
             <label for="cpf">CPF:</label><br>
@@ -21,7 +24,7 @@
             <label for="data_nasc">Data de Nascimento:</label><br>
             <input type="date" id="data_nasc" name="data_nasc">
             <br><br>
-            <label for="sede">Sede:</label><br>
+            <label class="label-grupo" for="sede">Sede:</label><br>
             <select id="sede" name="sede">
                 <option value="">Selecione uma sede</option>
                 <option value="Ald">Aldeota</option>
@@ -34,9 +37,10 @@
             <br><br>
             <label for="senha">Senha:</label><br>
             <input type="password" id="senha" name="senha">
+            <br><br>
             <button type="submit">Cadastrar</button>
-           
         </form>
     </div>
 </body>
+
 </html>
