@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    height: 600px;
+}
+
+.item1, .item2, .item3 {
+    width: 200px;
+    height: 200px;
+}
+
+.item1 {
+    background-color:green;
+}
+
+.item2 {
+    background-color:red;
+}
+
+.item3 {
+    background-color:yellow;
+}
