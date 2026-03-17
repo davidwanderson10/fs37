@@ -1,0 +1,41 @@
+/* body {
+    background-color: rgb(62, 77, 63);
+} */
+
+.card {
+    background-color: white;
+    width: 200px;
+    height: auto;
+    border-radius: 16px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+    width: 100%;
+    height: auto;
+}
+
+.card h1 {
+    font-size: 18px;
+}
+
+.card p {
+    font-size: 14px;
+    color: rgb(62, 77, 63);
+}
+
+.card button {
+    background-color: rgb(20, 98, 20);
+    color: white;
+    width: 80%;
+    border-radius: 8px;
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: rgb(20, 98, 20, 0.8);
+}
