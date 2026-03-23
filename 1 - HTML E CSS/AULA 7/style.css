@@ -2,6 +2,13 @@
     background-color: rgb(62, 77, 63);
 } */
 
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+}
+
 .card {
     background-color: white;
     width: 200px;
