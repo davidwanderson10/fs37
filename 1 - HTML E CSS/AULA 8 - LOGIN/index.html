@@ -4,13 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academy - Digital College</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-image: url("public/background.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login {
+            display: flex;
+            width: 80%;
+            height: 80%;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+        }
+
+        .login-left {
+           flex: 1;
+           padding: 40px 80px;
+        }
+
+        .login-left img{
+           width: 100%;
+           display: block;
+        }
+
+        .login-left p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        .login-left h4 {
+            margin: 0px 0px 20px 0px;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        .login-left form {
+            width: 100%;
+            text-align: center;
+        }
+
+        .login-left form input,
+        .login-left form button {
+            width: 100%;
+            margin-bottom: 20px;
+            font-family: 'Poppins', sans-serif;
+            border: 1px solid #ddd;
+            border-radius: 24px;
+            padding: 12px 20px;
+            box-sizing: border-box;
+        }
+        .login-left form input:focus,
+        .login-left form button:focus {
+            outline: none;
+            border-color: #BF0067;
+            box-shadow: 0 0 4px rgba(191, 0, 103, 0.4);
+        }
+        .login-left form input[type="text"],
+        .login-left form input[type="password"] {
+            height: 40px;
+        }
+
+        #remember-me {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #BF0067;
+            border-radius: 50%;
+        }
+
+        .login-left form button {
+            background-color: #BF0067;
+            border: none;
+            color: white;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 12px 20px;
+            border-radius: 24px;
+            transition: background-color 0.3s ease;
+        }
+        .login-left form button:hover {
+            background-color: #a7005c;
+        }
+
+
+        
+
+        .login-right {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+        }
+
+        
+
+    </style>
 </head>
 <body>
     <div class="container">
         <div class="login">
             <div class="login-left">
+                <img src="public/logo-academy-preta.png" alt="Logo">
+                <h4>Acesso ao EAD da Digital College</h4>
+                <p>Preencha seus dados abaixo.</p>
+                <form>
+                    <input type="text" placeholder="CPF" required>
+                    <input type="password" placeholder="Senha" required>
+                    <div class="input-login">
+                        <input type="checkbox" id="remember-me">
+                        <span class="custom-checkbox"></span>
+                        Lembrar meu acesso
+                        <a href="" class="forgot-password">Esqueceu a senha?</a>
+                    </div>
+                    <button type="submit">Acessar</button>
+                </form>
             </div>
             <div class="login-right">
+                <video id="background-video" autoplay muted loop>
+                    <source src="https://academy.digitalcollege.com.br/login/videos/background.mp4" type="video/mp4">
+                </video>
+                <img src="public/logo-academy-branca.png" alt="Logo Branca" class="logo-white">
             </div>
         </div>
     </div>

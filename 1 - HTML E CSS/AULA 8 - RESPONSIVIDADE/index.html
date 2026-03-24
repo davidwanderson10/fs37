@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsividade</title>
+
+    <style>
+
+        body {
+            background-color: grey;
+            padding: 20px;
+        }
+
+
+        @media (max-width: 800px) {
+            /* CSS aplicado somente em telas ≤ 800px */
+            body {
+                background-color: red;
+                color:rgb(255, 255, 255);
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            /* CSS aplicado somente em telas ≤ 600px */
+            body {
+                background-color: yellow;
+                color:rgb(255, 255, 255);
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Responsividade</h1>
+    <p>Redimensione a janela do navegador para ver o efeito da responsividade.</p>
+    
+</body>
+</html>
