@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora IMC</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-700 flex items-center justify-center min-h-screen">
+
+  <!-- Caixa principal -->
+  <div class="bg-gray-200 p-8 rounded-2xl shadow-lg w-90">
+
+    <h1 class="text-2x1 font-bold text-center mb-6">
+      Calculadora IMC
+    </h1>
+
+    <!-- Campo peso -->
+    <label class="block mb-2 font-semibold">
+      Peso (kg)
+    </label>
+
+    <input 
+      type="number"
+      id="peso"
+      placeholder="Ex: 70"
+      class="w-full border border-gray-300 rounded-lg p-2 mb-4"
+    >
+
+    <!-- Campo altura -->
+    <label class="block mb-2 font-semibold">
+      Altura (m)
+    </label>
+
+    <input 
+      type="number"
+      id="altura"
+      step="0.01"
+      placeholder="Ex: 1.75"
+      class="w-full border border-gray-300 rounded-lg p-2 mb-4"
+    >
+
+    <!-- Botão -->
+    <button 
+      onclick="calcularIMC()"
+      class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg"
+    >
+      Calcular
+    </button>
+
+    <!-- Resultado -->
+    <div id="resultado" class="mt-6 text-center text-lg font-semibold">
+      Seu resultado aparecerá aqui
+    </div>
+
+  </div>
+
+  <script>
+
+    // Função para calcular o IMC
+    function calcularIMC() {
+
+      // Pegando os valores digitados
+      let peso = document.getElementById("peso").value;
+      let altura = document.getElementById("altura").value;
+
+
+      // Fórmula do IMC
+      let imc = peso / (altura * altura);
+
+      // Variável da classificação
+      let classificacao = "";
+
+      // Verificando o resultado
+      if (imc < 18.5) {
+        classificacao = "Abaixo do peso";
+      } 
+      else if (imc < 25) {
+        classificacao = "Peso normal";
+      } 
+      else if (imc < 30) {
+        classificacao = "Sobrepeso";
+      } 
+      else {
+        classificacao = "Obesidade";
+      }
+
+      const result = !peso || !altura ? "Por favor, preencha todos os campos." : `IMC: ${imc.toFixed(2)} - ${classificacao}`;   
+
+      // Mostrando na tela
+      document.getElementById("resultado").innerHTML =
+        result;
+    }
+
+  </script>
+
+</body>
+</html>
