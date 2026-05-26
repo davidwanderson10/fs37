@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cards com forEach</title>
+
+  <style>
+    .container {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      width: 350px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #f5f5f5;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container"></div>
+
+  <script>
+
+    const estados = [
+
+        {
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "David",
+            "last": "Li"
+        },
+        "location": {
+            "street": {
+            "number": 4780,
+            "name": "Carlton Avenue"
+            },
+            "city": "Rotorua",
+            "state": "Manawatu-Wanganui",
+            "country": "New Zealand",
+            "postcode": 89946,
+            "coordinates": {
+            "latitude": "51.8475",
+            "longitude": "-115.1155"
+            },
+            "timezone": {
+            "offset": "-4:00",
+            "description": "Atlantic Time (Canada), Caracas, La Paz"
+            }
+        },
+        "email": "david.li@example.com",
+        "login": {
+            "uuid": "47471b5e-223a-43ce-9359-1e69670938fa",
+            "username": "goldenmeercat195",
+            "password": "caravan",
+            "salt": "jjmQpV3w",
+            "md5": "f137342fefbb0d53662de78349e61504",
+            "sha1": "aa51ea83c9aada8418881cfef0594dde06730f5b",
+            "sha256": "64daab32b69c9d40dc145d8f6ec1cd056f647e9b4282abbd258916aacbea57dd"
+        },
+        "dob": {
+            "date": "1996-04-16T14:17:26.900Z",
+            "age": 30
+        },
+        "registered": {
+            "date": "2009-10-16T21:06:17.061Z",
+            "age": 16
+        },
+        "phone": "(440)-525-9610",
+        "cell": "(851)-521-1888",
+        "id": {
+            "name": "",
+            "value": null
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/59.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/59.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/59.jpg"
+        },
+        "nat": "NZ"
+        },
+        {
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "ماهان",
+            "last": "موسوی"
+        },
+        "location": {
+            "street": {
+            "number": 9478,
+            "name": "شهید علی باستانی"
+            },
+            "city": "ورامین",
+            "state": "قزوین",
+            "country": "Iran",
+            "postcode": 93491,
+            "coordinates": {
+            "latitude": "-70.3661",
+            "longitude": "-145.1650"
+            },
+            "timezone": {
+            "offset": "-11:00",
+            "description": "Midway Island, Samoa"
+            }
+        },
+        "email": "mhn.mwswy@example.com",
+        "login": {
+            "uuid": "e929312d-dd96-4ba0-b7d8-e1501257a20b",
+            "username": "beautifulpeacock638",
+            "password": "bonita",
+            "salt": "ewbgltCP",
+            "md5": "6bb1a085ec17f428ba24e1708b1ed7b2",
+            "sha1": "0b6ea071ef63b8438b9421ddfb5ebbd9ec282e18",
+            "sha256": "306c860fe72464a330fb6668ed851e1932bbc8b883f80ebbd33ec5249b359bc1"
+        },
+        "dob": {
+            "date": "1958-01-31T17:19:36.285Z",
+            "age": 68
+        },
+        "registered": {
+            "date": "2016-05-13T13:07:37.480Z",
+            "age": 10
+        },
+        "phone": "069-00895798",
+        "cell": "0959-777-2261",
+        "id": {
+            "name": "",
+            "value": null
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/91.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/91.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/91.jpg"
+        },
+        "nat": "IR"
+        },
+        {
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Nicholas",
+            "last": "Porter"
+        },
+        "location": {
+            "street": {
+            "number": 6548,
+            "name": "Ash Dr"
+            },
+            "city": "Adelaide",
+            "state": "Queensland",
+            "country": "Australia",
+            "postcode": 7534,
+            "coordinates": {
+            "latitude": "17.6558",
+            "longitude": "-94.7855"
+            },
+            "timezone": {
+            "offset": "-9:00",
+            "description": "Alaska"
+            }
+        },
+        "email": "nicholas.porter@example.com",
+        "login": {
+            "uuid": "beae11df-9bfd-49ec-8b43-a304bb1a0075",
+            "username": "beautifulgoose705",
+            "password": "nimitz",
+            "salt": "OBBaxCUr",
+            "md5": "02c892261e87684c23ab69f337983d65",
+            "sha1": "f7ae1ad986797e2b52d362d9dd3a5970a487ce0d",
+            "sha256": "a211eda65c76a7d0afc4d8510d4b7c87a78a84486e84eef0c9039cf0b7a13835"
+        },
+        "dob": {
+            "date": "1948-01-17T07:44:49.152Z",
+            "age": 78
+        },
+        "registered": {
+            "date": "2005-05-03T18:52:08.155Z",
+            "age": 21
+        },
+        "phone": "08-4014-0789",
+        "cell": "0486-127-718",
+        "id": {
+            "name": "TFN",
+            "value": "925440496"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/57.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/57.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/57.jpg"
+        },
+        "nat": "AU"
+        },
+        {
+        "gender": "female",
+        "name": {
+            "title": "Mrs",
+            "first": "Jasmine",
+            "last": "Lavigne"
+        },
+        "location": {
+            "street": {
+            "number": 7171,
+            "name": "Duke St"
+            },
+            "city": "Delta",
+            "state": "Nunavut",
+            "country": "Canada",
+            "postcode": "I7R 8Z9",
+            "coordinates": {
+            "latitude": "27.0868",
+            "longitude": "-20.2943"
+            },
+            "timezone": {
+            "offset": "+5:45",
+            "description": "Kathmandu"
+            }
+        },
+        "email": "jasmine.lavigne@example.com",
+        "login": {
+            "uuid": "7057b4a1-5a02-49d7-8271-befe923cc2cf",
+            "username": "sadmeercat920",
+            "password": "miami1",
+            "salt": "xkIfFP7a",
+            "md5": "1ca78d4db815ed01c1128930a0287a33",
+            "sha1": "35391e93a7c92ed33147a8b52c5c106d9cd49feb",
+            "sha256": "c9d4f18b9d61f2a022b376b73f06230eb1e99c299ec81c1bf484771f73560870"
+        },
+        "dob": {
+            "date": "1989-12-17T06:17:38.094Z",
+            "age": 36
+        },
+        "registered": {
+            "date": "2019-08-26T10:37:09.652Z",
+            "age": 6
+        },
+        "phone": "F01 A88-9273",
+        "cell": "Y09 D67-1845",
+        "id": {
+            "name": "SIN",
+            "value": "519551451"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/6.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/6.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/6.jpg"
+        },
+        "nat": "CA"
+        },
+        {
+        "gender": "female",
+        "name": {
+            "title": "Mrs",
+            "first": "Amy",
+            "last": "Hermansen"
+        },
+        "location": {
+            "street": {
+            "number": 879,
+            "name": "Poppelstien"
+            },
+            "city": "Sletta",
+            "state": "Telemark",
+            "country": "Norway",
+            "postcode": "9068",
+            "coordinates": {
+            "latitude": "-41.2579",
+            "longitude": "8.6057"
+            },
+            "timezone": {
+            "offset": "0:00",
+            "description": "Western Europe Time, London, Lisbon, Casablanca"
+            }
+        },
+        "email": "amy.hermansen@example.com",
+        "login": {
+            "uuid": "7707fab1-f986-4bb6-88e6-2818af09b9ec",
+            "username": "organicpeacock851",
+            "password": "panasoni",
+            "salt": "tTd3tR9h",
+            "md5": "5d02ec9d7a05ea8944ff9e2b544120a4",
+            "sha1": "5001a2aa0fa5dca69bd76760b880fa0228eac5f4",
+            "sha256": "4ef27f3a62da1a0818653c9318699253e41c9780dd78bffce636c125b25e336e"
+        },
+        "dob": {
+            "date": "2001-01-02T20:10:58.977Z",
+            "age": 25
+        },
+        "registered": {
+            "date": "2012-03-31T10:37:19.424Z",
+            "age": 14
+        },
+        "phone": "69904143",
+        "cell": "49723663",
+        "id": {
+            "name": "FN",
+            "value": "02010193616"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/54.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/54.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/54.jpg"
+        },
+        "nat": "NO"
+        },
+        {
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Marc",
+            "last": "Diaz"
+        },
+        "location": {
+            "street": {
+            "number": 9632,
+            "name": "Calle Mota"
+            },
+            "city": "Granada",
+            "state": "País Vasco",
+            "country": "Spain",
+            "postcode": 60859,
+            "coordinates": {
+            "latitude": "65.5361",
+            "longitude": "-157.4160"
+            },
+            "timezone": {
+            "offset": "+10:00",
+            "description": "Eastern Australia, Guam, Vladivostok"
+            }
+        },
+        "email": "marc.diaz@example.com",
+        "login": {
+            "uuid": "3130dde4-b6f0-4f2b-82d7-85bb47e57151",
+            "username": "yellowbutterfly564",
+            "password": "misha",
+            "salt": "bfJM0x9q",
+            "md5": "597dc96ea6e3f43066fe489c2e2edd2e",
+            "sha1": "8ad44880dafe5ce8150f048b22b857d7de627a9e",
+            "sha256": "9ed5fb95bcbb78faa08f3ba64f798de150c8e0430c283fc09d7b66cfa34e103a"
+        },
+        "dob": {
+            "date": "1985-01-10T14:51:53.508Z",
+            "age": 41
+        },
+        "registered": {
+            "date": "2005-03-13T09:54:19.139Z",
+            "age": 21
+        },
+        "phone": "926-405-814",
+        "cell": "698-444-507",
+        "id": {
+            "name": "DNI",
+            "value": "78196245-Q"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/71.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/71.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/71.jpg"
+        },
+        "nat": "ES"
+        },
+        {
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Horst",
+            "last": "Patzelt"
+        },
+        "location": {
+            "street": {
+            "number": 1659,
+            "name": "Tulpenweg"
+            },
+            "city": "Clausthal-Zellerfeld",
+            "state": "Berlin",
+            "country": "Germany",
+            "postcode": 56174,
+            "coordinates": {
+            "latitude": "9.5874",
+            "longitude": "-58.7873"
+            },
+            "timezone": {
+            "offset": "-12:00",
+            "description": "Eniwetok, Kwajalein"
+            }
+        },
+        "email": "horst.patzelt@example.com",
+        "login": {
+            "uuid": "6cfb69a1-0a6c-4e0d-a1bc-7a4da334ceaf",
+            "username": "beautifulfish965",
+            "password": "club",
+            "salt": "WeOthDeH",
+            "md5": "5cf86b8afee5c3ec172e7dda0f97ab7d",
+            "sha1": "6210ccdef15c62abc67462acbd73c464a8267cac",
+            "sha256": "8e7e1491b067d03f6de8bfb0a04f06a7db18f59dd6f080603e22c13f9a688fff"
+        },
+        "dob": {
+            "date": "1959-05-17T11:19:34.466Z",
+            "age": 67
+        },
+        "registered": {
+            "date": "2009-01-19T23:39:06.228Z",
+            "age": 17
+        },
+        "phone": "0229-1767903",
+        "cell": "0172-3088828",
+        "id": {
+            "name": "SVNR",
+            "value": "16 170559 P 461"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/59.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/59.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/59.jpg"
+        },
+        "nat": "DE"
+        },
+        {
+        "gender": "male",
+        "name": {
+            "title": "Mr",
+            "first": "Lyuboslav",
+            "last": "Gavrilishin"
+        },
+        "location": {
+            "street": {
+            "number": 4659,
+            "name": "Muzichanskiy provulok"
+            },
+            "city": "Zelenodolsk",
+            "state": "Mikolayivska",
+            "country": "Ukraine",
+            "postcode": 18952,
+            "coordinates": {
+            "latitude": "17.3703",
+            "longitude": "162.5854"
+            },
+            "timezone": {
+            "offset": "+5:00",
+            "description": "Ekaterinburg, Islamabad, Karachi, Tashkent"
+            }
+        },
+        "email": "lyuboslav.gavrilishin@example.com",
+        "login": {
+            "uuid": "ae3f24ef-3315-46b2-bbae-1c991af58b3f",
+            "username": "heavytiger135",
+            "password": "chippy",
+            "salt": "iBTidpJm",
+            "md5": "acd446b0615ee856daa8287c3b7a69c7",
+            "sha1": "61e07338eb9d969e501880e4d618796d9909db11",
+            "sha256": "8abe3f865e1cd415478c0de00370f4bd49d580e60916fc1e025dd6d3ecee907a"
+        },
+        "dob": {
+            "date": "1987-08-16T14:48:07.055Z",
+            "age": 38
+        },
+        "registered": {
+            "date": "2022-05-15T07:12:10.173Z",
+            "age": 4
+        },
+        "phone": "(066) Y23-0754",
+        "cell": "(099) H22-0460",
+        "id": {
+            "name": "",
+            "value": null
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/men/82.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/men/82.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/men/82.jpg"
+        },
+        "nat": "UA"
+        },
+        {
+        "gender": "female",
+        "name": {
+            "title": "Ms",
+            "first": "Bianca",
+            "last": "Ayala"
+        },
+        "location": {
+            "street": {
+            "number": 2374,
+            "name": "Continuación Franco"
+            },
+            "city": "Ejido Sanson Flores",
+            "state": "Guanajuato",
+            "country": "Mexico",
+            "postcode": 33696,
+            "coordinates": {
+            "latitude": "87.9399",
+            "longitude": "0.5954"
+            },
+            "timezone": {
+            "offset": "+5:30",
+            "description": "Bombay, Calcutta, Madras, New Delhi"
+            }
+        },
+        "email": "bianca.ayala@example.com",
+        "login": {
+            "uuid": "9a3d9451-d916-49af-84c0-b91f8926825c",
+            "username": "angrycat536",
+            "password": "5656",
+            "salt": "mx0ZvElA",
+            "md5": "fb6bc73a5bd025591b9d11c355862d9f",
+            "sha1": "de8540a8710ba41e7e5d745cc2b578a86b98b679",
+            "sha256": "b9d6ba95645e3d4ae61373379cfe4bed7fc3d37dd6a2eb390a5746eb9d58f69b"
+        },
+        "dob": {
+            "date": "1952-10-27T00:22:08.807Z",
+            "age": 73
+        },
+        "registered": {
+            "date": "2016-02-11T03:23:15.410Z",
+            "age": 10
+        },
+        "phone": "(625) 419 8209",
+        "cell": "(657) 833 9473",
+        "id": {
+            "name": "NSS",
+            "value": "72 53 62 7662 5"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/24.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/24.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/24.jpg"
+        },
+        "nat": "MX"
+        },
+        {
+        "gender": "female",
+        "name": {
+            "title": "Miss",
+            "first": "Rathi",
+            "last": "Saniel"
+        },
+        "location": {
+            "street": {
+            "number": 5177,
+            "name": "Ashoka Rd"
+            },
+            "city": "Machilipatnam",
+            "state": "Maharashtra",
+            "country": "India",
+            "postcode": 36555,
+            "coordinates": {
+            "latitude": "28.5401",
+            "longitude": "132.7300"
+            },
+            "timezone": {
+            "offset": "+7:00",
+            "description": "Bangkok, Hanoi, Jakarta"
+            }
+        },
+        "email": "rathi.saniel@example.com",
+        "login": {
+            "uuid": "feb91596-1abc-444b-8e4b-f1a9cdf79aee",
+            "username": "angryzebra551",
+            "password": "island",
+            "salt": "vFIUNt9S",
+            "md5": "ae9c740af4ebe49988e57c4658cf178b",
+            "sha1": "493ae46e7c9d4ba852361c54cbf23364aee1d32b",
+            "sha256": "d596c0ecd5920c6619148f9767dc6d108befedf2f70ed45d08af6cef850327a7"
+        },
+        "dob": {
+            "date": "1965-11-12T19:53:51.348Z",
+            "age": 60
+        },
+        "registered": {
+            "date": "2004-10-30T03:28:10.834Z",
+            "age": 21
+        },
+        "phone": "9587716094",
+        "cell": "8332075732",
+        "id": {
+            "name": "UIDAI",
+            "value": "523743672183"
+        },
+        "picture": {
+            "large": "https://randomuser.me/api/portraits/women/24.jpg",
+            "medium": "https://randomuser.me/api/portraits/med/women/24.jpg",
+            "thumbnail": "https://randomuser.me/api/portraits/thumb/women/24.jpg"
+        },
+        "nat": "IN"
+        }
+    ]
+    
+    let total = 0
+    let soma = 0
+    let media = 0
+    const container = document.querySelector(".container")
+
+    estados.forEach((estado) => {
+        total += 1
+        soma += estado.dob.age
+        media = soma / total
+        container.innerHTML += `
+            <div class="card">
+                <h2>Nome: ${estado.name.first}</h2>
+                <p>Idade: ${estado.dob.age} anos</p>
+            </div>
+        `
+    })
+
+    container.innerHTML += `
+    <div class = "card">
+        <p>Total de de pessoas: ${total}</p>
+        <p>Soma das idades das pessoas: ${soma}</p>
+        <p>A media das idades das pessoas é de: ${media}</p>
+    </div>`
+
+
+    const mulheres = estados
+        .filter(function(mulher){
+            return mulher.gender === 'female'
+        })
+        .map(function(mulher){
+            return mulher.name.first
+        })
+        .join(", ")
+
+    container.innerHTML += `
+        <div class = "card">
+            <h2>Mulheres:</h2>
+            ${mulheres}
+        </div>
+    `
+
+    const homens = estados.filter(homem => homem.gender === 'male' && homem.dob.age > 50)
+    .map(homem => homem.name.first)
+    .join(", ")
+
+    container.innerHTML+=
+    `
+        <div class = "card">
+            <h2>Homens maiores de 50 anos:</h2>
+            ${homens}
+        </div>
+    `
+    const nomes = estados.map(nome => nome.name.first)
+    console.log(nomes)
+
+    const paises =estados.map(pais => pais.location.country)
+
+    const pessoasPorPais = {}
+    estados.forEach(pessoa =>{
+        const pais = pessoa.location.country
+        if(!pessoasPorPais[pais]){
+            pessoasPorPais[pais]=[]
+        }
+        pessoasPorPais[pais].push(pessoa.name.first)
+    })
+
+    for (const pais in pessoasPorPais){
+        container.innerHTML += `
+            <div class="card">
+            <h2>${pais}</h2>
+            <p>${pessoasPorPais[pais]}</p>
+            </div>
+        `
+    }
+
+  </script>
+
+</body>
+</html>
+
+<!-- https://randomuser.me/api/?results=10 -->
