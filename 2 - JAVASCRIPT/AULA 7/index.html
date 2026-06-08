@@ -1,0 +1,259 @@
+<!-- URNA 
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urna Eletrônica</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#0f172a,#1e293b);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    background:#fff;
+    width:400px;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
+
+h1{
+    text-align:center;
+    margin-bottom:20px;
+    color:#1e293b;
+}
+
+.botoes{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+button{
+    flex:1;
+    border:none;
+    padding:15px;
+    border-radius:8px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.candidatoA{
+    background:#2563eb;
+    color:white;
+}
+
+.candidatoB{
+    background:#16a34a;
+    color:white;
+}
+
+button:hover{
+    transform:translateY(-3px);
+}
+
+.resultado{
+    background:#f1f5f9;
+    padding:15px;
+    border-radius:10px;
+}
+
+.resultado p{
+    margin:10px 0;
+    font-size:18px;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🗳️ Urna Eletrônica</h1>
+
+    <div class="botoes">
+        <button class="candidatoA" onclick="votar(0)">
+            Candidato A
+        </button>
+
+        <button class="candidatoB" onclick="votar(1)">
+            Candidato B
+        </button>
+    </div>
+
+    <div class="resultado">
+        <p>Candidato A: <strong id="a">0</strong></p>
+        <p>Candidato B: <strong id="b">0</strong></p>
+    </div>
+</div>
+
+<script>
+const votos = [0,0];
+
+function votar(indice){
+    votos[indice]++;
+
+    document.getElementById("a").innerText = votos[0];
+    document.getElementById("b").innerText = votos[1];
+}
+</script>
+
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jokenpô</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#1e3a8a,#312e81);
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    width:450px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 10px 25px rgba(0,0,0,.3);
+    text-align:center;
+}
+
+h1{
+    margin-bottom:20px;
+    color:#1e293b;
+}
+
+.botoes{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-bottom:20px;
+}
+
+button{
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:translateY(-3px);
+}
+
+.resultado{
+    background:#f8fafc;
+    padding:20px;
+    border-radius:10px;
+    margin-top:15px;
+    line-height:1.8;
+}
+
+#resultadoFinal{
+    font-size:22px;
+    font-weight:bold;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <h1>✊ ✋ ✌️ Jokenpô</h1>
+
+    <div class="botoes">
+        <button onclick="jogar(0)">Pedra</button>
+        <button onclick="jogar(1)">Papel</button>
+        <button onclick="jogar(2)">Tesoura</button>
+    </div>
+
+    <div class="resultado">
+        <p><strong>Você:</strong> <span id="jogador">-</span></p>
+        <p><strong>Computador:</strong> <span id="computador">-</span></p>
+        <p id="resultadoFinal">Faça sua jogada!</p>
+    </div>
+
+</div>
+
+<script>
+
+const opcoes = ["Pedra","Papel","Tesoura"];
+
+function jogar(jogador){
+
+    const computador =
+    Math.floor(Math.random() * opcoes.length);
+
+    let resultado;
+
+    if(jogador === computador){
+        resultado = "🤝 Empate!";
+    }
+    else if(
+        (jogador === 0 && computador === 2) ||
+        (jogador === 1 && computador === 0) ||
+        (jogador === 2 && computador === 1)
+    ){
+        resultado = "🎉 Você venceu!";
+    }
+    else{
+        resultado = "💻 Computador venceu!";
+    }
+
+    document.getElementById("jogador").innerText =
+        opcoes[jogador];
+
+    document.getElementById("computador").innerText =
+        opcoes[computador];
+
+    document.getElementById("resultadoFinal").innerText =
+        resultado;
+}
+
+</script>
+
+</body>
+</html>
+
+
