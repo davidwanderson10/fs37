@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exemplo Básico</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f0f4f8;
+    }
+    .container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 24px;
+      text-align: center;
+      width: 320px;
+    }
+    button {
+      background: #007bff;
+      border: none;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .message {
+      color: #e01b1b;
+    }
+
+    .fundoPreto {
+      background: #000000;
+    }
+
+    .fundoBranco {
+      background: #ffffff;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Olá, mundo!</h1>
+    <button onclick="criarMensagem()" id="clickMe">Clique aqui</button>
+    <p id="texto">Teste</p>
+  </div>
+  <script>
+
+    let corFundo = "branco"
+    function criarMensagem() {
+        if(corFundo === "branco"){
+            document.body.classList.add("fundoPreto")
+            document.body.classList.remove("fundoBranco")
+            corFundo = "preto"
+        } else {
+            document.body.classList.add("fundoBranco")
+            document.body.classList.remove("fundoPreto")
+            corFundo = "branco"
+        }
+        
+        // const novoParagrafo = document.createElement("p")
+        // novoParagrafo.textContent = `Parágrafo ${contador}`
+        // contador++
+
+        // const container = document.querySelector(".container")
+        // container.appendChild(novoParagrafo)
+
+    } //https://dontpad.com/37fs
+  </script>
+</body>
+</html>
