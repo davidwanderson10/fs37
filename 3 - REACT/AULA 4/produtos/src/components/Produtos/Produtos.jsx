@@ -10,19 +10,33 @@ export default function Produtos () {
         async function fecthProduts() {
             try {
                 setLoading(true)
-                const response = await fetch('https://fakestoreapi.com/products?limit=4')
-                const data = await response.json
+                const response = await fetch('https://fakestoreapi.com/products?limit=10')
+
+                if (!response.ok){
+                    throw new Error("Erro ao carregar os produtos!")
+                }
+
+                const data = await response.json();
                 setProducts(data)
             } catch(err) {
                 setError(err.message)
             }
             
         }
-    })
+        fecthProduts();
+    },[]);
 
-
-
-    return (''
+    const resultado = products.length > 0 ? products[1] : ''
+    return (
+        <div className='grid'>
+            {products.map((product) => (
+                <div key={product.id} className='card'>
+                    <h2>{product.title}</h2>
+                    <img src={product.image} alt={product.title}/>
+                    <p>R$ {product.price}</p>
+                </div>            
+            ))}
+        </div>
     )
 }
 
